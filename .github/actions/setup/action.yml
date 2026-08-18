@@ -1,0 +1,21 @@
+name: "Setup Node.js and dependencies"
+description: "Set up Node.js with npm caching and install dependencies from the lockfile"
+
+inputs:
+  node-version:
+    description: "Node.js version to use (use lts/* for the latest LTS)"
+    required: false
+    default: "lts/*"
+
+runs:
+  using: "composite"
+  steps:
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: npm
+
+    - name: 📦 Install dependencies
+      shell: bash
+      run: npm ci
