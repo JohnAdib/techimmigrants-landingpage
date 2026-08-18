@@ -3,7 +3,7 @@ description: "Set up Node.js with npm caching and install dependencies from the 
 
 inputs:
   node-version:
-    description: "Node.js version to use (use lts/* for the latest LTS)"
+    description: "Node.js version. Defaults to lts/*, which resolves to the latest Node LTS at run time."
     required: false
     default: "lts/*"
 
@@ -11,10 +11,16 @@ runs:
   using: "composite"
   steps:
     - name: 📦 Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v7
       with:
         node-version: ${{ inputs.node-version }}
         cache: npm
+
+    - name: 🔎 Report toolchain
+      shell: bash
+      run: |
+        echo "node $(node --version)"
+        echo "npm  $(npm --version)"
 
     - name: 📦 Install dependencies
       shell: bash
