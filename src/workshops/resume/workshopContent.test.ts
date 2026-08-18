@@ -10,10 +10,10 @@ describe("resume workshop content", () => {
   });
 
   it("keeps the placeholder date honest and explicit", () => {
-    expect(workshopFacts.date.iso).toBe("2026-09-19");
+    expect(workshopFacts.date.iso).toBe("2026-09-26");
     expect(workshopFacts.date.status).toBe("proposed");
-    expect(workshopFacts.date.persianLabel).toContain("۲۸ شهریور ۱۴۰۵");
-    expect(workshopFacts.date.gregorianLabel).toContain("19 September 2026");
+    expect(workshopFacts.date.persianLabel).toContain("۴ مهر ۱۴۰۵");
+    expect(workshopFacts.date.gregorianLabel).toContain("26 September 2026");
     expect(workshopFacts.date.timeLabel).toContain("سه ساعت");
   });
 

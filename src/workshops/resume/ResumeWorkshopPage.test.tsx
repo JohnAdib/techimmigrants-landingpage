@@ -27,8 +27,8 @@ describe("ResumeWorkshopPage", () => {
   it("communicates the tentative logistics without pretending registration is open", () => {
     const html = renderPage();
 
-    expect(html).toContain("شنبه ۲۸ شهریور ۱۴۰۵");
-    expect(html).toContain("Saturday, 19 September 2026");
+    expect(html).toContain("شنبه ۴ مهر ۱۴۰۵");
+    expect(html).toContain("Saturday, 26 September 2026");
     expect(html).toContain("ساعت نهایی به‌زودی · سه ساعت");
     expect(html).toContain("رزرو صندلی — به‌زودی");
     expect(html).toContain('aria-disabled="true"');

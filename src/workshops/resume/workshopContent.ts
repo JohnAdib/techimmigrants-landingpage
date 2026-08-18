@@ -14,11 +14,11 @@ export const workshopFacts = {
   durationMinutes: 180,
   capacity: { min: 20, max: 30 },
   date: {
-    iso: "2026-09-19",
-    persianLabel: "شنبه ۲۸ شهریور ۱۴۰۵",
-    gregorianLabel: "Saturday, 19 September 2026",
+    iso: "2026-09-26",
+    persianLabel: "شنبه ۴ مهر ۱۴۰۵",
+    gregorianLabel: "Saturday, 26 September 2026",
     timeLabel: "ساعت نهایی به‌زودی · سه ساعت",
-    shortLabel: "۲۸ شهریور ۱۴۰۵ / 19 September 2026",
+    shortLabel: "۴ مهر ۱۴۰۵ / 26 September 2026",
     status: "proposed" as const,
   },
   format: "تعاملی و مبتنی بر رزومه‌های واقعی",
@@ -192,7 +192,7 @@ export const faqs = [
   {
     question: "تاریخ و شیوه برگزاری قطعی است؟",
     answer:
-      "فعلاً شنبه ۲۸ شهریور ۱۴۰۵، برابر با Saturday, 19 September 2026، تاریخ پیشنهادی است. ساعت و شیوه برگزاری همراه با بازشدن ثبت‌نام اعلام می‌شود.",
+      "فعلاً شنبه ۴ مهر ۱۴۰۵، برابر با Saturday, 26 September 2026، تاریخ پیشنهادی است. ساعت و شیوه برگزاری همراه با بازشدن ثبت‌نام اعلام می‌شود.",
   },
   {
     question: "هزینه و امکان ضبط جلسه چطور؟",

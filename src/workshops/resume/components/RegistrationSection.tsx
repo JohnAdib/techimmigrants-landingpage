@@ -20,7 +20,7 @@ export function RegistrationSection() {
           برای خبر ثبت‌نام، Tech Immigrants را دنبال کن<Linkedin aria-hidden="true" />
         </a>
       </div>
-      <div className="rw-registration-date" aria-hidden="true"><strong>28</strong><span>SHAHRIVAR<br />19 SEP</span></div>
+      <div className="rw-registration-date" aria-hidden="true"><strong>04</strong><span>MEHR<br />26 SEP</span></div>
     </section>
   );
 }

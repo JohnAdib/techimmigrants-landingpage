@@ -93,7 +93,7 @@ export default function WorkshopsPage() {
                 <dl className="mt-9 grid gap-4 border-y border-border py-6 text-sm sm:grid-cols-3">
                   <div className="flex items-center gap-2.5">
                     <CalendarDays className="h-4 w-4 text-primary" aria-hidden="true" />
-                    <div><dt className="sr-only">تاریخ</dt><dd>شنبه ۱۹ سپتامبر</dd></div>
+                    <div><dt className="sr-only">تاریخ</dt><dd>شنبه ۲۶ سپتامبر</dd></div>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Clock3 className="h-4 w-4 text-primary" aria-hidden="true" />

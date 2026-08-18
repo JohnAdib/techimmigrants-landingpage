@@ -11,7 +11,7 @@ describe("workshops index", () => {
     const source = readFileSync(pageUrl, "utf8");
     expect(source).toContain('to="/workshops/resume"');
     expect(source).toContain("کارگاه رزومه");
-    expect(source).toContain("شنبه ۱۹ سپتامبر");
+    expect(source).toContain("شنبه ۲۶ سپتامبر");
     expect(source).toContain('import { Footer } from "@/components/landing/Footer"');
   });
 
