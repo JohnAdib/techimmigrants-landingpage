@@ -1,70 +1,77 @@
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { siteLinks } from "../englishHomeContent";
+import { currentMonth, currentYearMonth } from "../reportingPeriod";
+
+const pulseStats = [
+  { value: "54K+", label: "cross-platform reach" },
+  { value: "Six years", label: "built together" },
+  { value: "Organic", label: "community growth" },
+] as const;
 
 export function HeroSection() {
   return (
     <section className="eh-hero" aria-labelledby="hero-title">
-      <div className="eh-hero__route" aria-hidden="true">
-        <svg viewBox="0 0 620 540" role="presentation">
-          <path className="eh-route-line eh-route-line--ghost" d="M30 440C105 365 90 236 197 202s149 70 224 5 49-142 170-163" />
-          <path className="eh-route-line" d="M30 440C105 365 90 236 197 202s149 70 224 5 49-142 170-163" />
-          <circle cx="30" cy="440" r="8" />
-          <circle cx="197" cy="202" r="8" />
-          <circle cx="421" cy="207" r="8" />
-          <circle cx="591" cy="44" r="11" />
-        </svg>
-        <span className="eh-route-note eh-route-note--one">experience</span>
-        <span className="eh-route-note eh-route-note--two">context</span>
-        <span className="eh-route-note eh-route-note--three">shared forward</span>
-      </div>
-
       <div className="eh-hero__copy" data-reveal>
         <span className="eh-eyebrow">
           <span>Persian-speaking tech community</span>
-          <span aria-hidden="true">/</span>
-          <span>Six years of shared experience</span>
+          <span aria-hidden="true">•</span>
+          <span>Across borders, careers, and new beginnings</span>
         </span>
         <h1 id="hero-title">
           Where lived immigration experience becomes <em>shared advantage.</em>
         </h1>
         <p className="eh-hero__lead">
-          Tech Immigrants turns the hard-won experience of Persian-speaking tech professionals into practical guidance for people navigating international careers, migration, relocation, and belonging.
+          Persian-speaking tech professionals share what actually helped—from CVs and interviews to relocation, career growth, and building a life after the move.
         </p>
         <div className="eh-actions">
           <a className="eh-button eh-button--primary" href="#story">
-            See how it works <ArrowDown aria-hidden="true" />
+            See how knowledge travels <ArrowDown aria-hidden="true" />
           </a>
           <a className="eh-text-link" href={siteLinks.persian}>
             Visit the Persian community <ArrowRight aria-hidden="true" />
           </a>
         </div>
-      </div>
-
-      <aside className="eh-field-note" aria-label="Community field notes" data-reveal>
-        <div className="eh-field-note__heading">
-          <span>Field notes</span>
-          <span>June 2026</span>
+        <div className="eh-hero__proof" aria-label="Community principles">
+          <span>Peer-led</span><i aria-hidden="true" /><span>Experience-first</span><i aria-hidden="true" /><span>Community-powered</span>
         </div>
-        <dl>
-          <div>
-            <dt>Community reach</dt>
-            <dd>54K+</dd>
-          </div>
-          <div>
-            <dt>Built together</dt>
-            <dd>6 years</dd>
-          </div>
-          <div>
-            <dt>Growth model</dt>
-            <dd>Organic</dd>
-          </div>
-        </dl>
-        <p>No paid ads. No sponsor-led growth. Trust built through useful conversations, practical support, and the decision to help the next person.</p>
-      </aside>
-
-      <div className="eh-hero__caption" aria-hidden="true">
-        <span>IR</span><i /> <span>WORLD</span>
       </div>
+
+      <aside className="eh-pulse" aria-label="Community pulse" data-reveal>
+        <div className="eh-pulse__header">
+          <span><i aria-hidden="true" /> Community pulse</span>
+          <time dateTime={currentYearMonth} aria-label={`Page context: ${currentMonth}`}>{currentMonth}</time>
+        </div>
+
+        <div className="eh-pulse__visual" aria-hidden="true">
+          <div className="eh-hero__route">
+            <svg viewBox="0 0 620 360" role="presentation">
+              <path className="eh-route-line eh-route-line--ghost" d="M30 292C118 286 116 105 230 122s134 126 225 43S521 38 592 42" />
+              <path className="eh-route-line" d="M30 292C118 286 116 105 230 122s134 126 225 43S521 38 592 42" />
+              <circle cx="30" cy="292" r="8" />
+              <circle cx="230" cy="122" r="8" />
+              <circle cx="455" cy="165" r="8" />
+              <circle cx="592" cy="42" r="11" />
+            </svg>
+          </div>
+          <div className="eh-pulse__signal">
+            <span>EXPERIENCE</span>
+            <strong>shared</strong>
+            <small>forward</small>
+          </div>
+          <span className="eh-pulse__label eh-pulse__label--from">One person learns</span>
+          <span className="eh-pulse__label eh-pulse__label--to">The next starts ahead</span>
+        </div>
+
+        <dl className="eh-pulse__stats">
+          {pulseStats.map((stat) => (
+            <div key={stat.label}>
+              <dt>{stat.label}</dt>
+              <dd>{stat.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="eh-pulse__note">No paid acquisition. Growth built through useful conversations and the choice to help the next person.</p>
+      </aside>
     </section>
   );
 }

@@ -3,15 +3,10 @@ import { journeyStages } from "../englishHomeContent";
 export function JourneySection() {
   return (
     <section className="eh-section eh-journey" id="journey" aria-labelledby="journey-title">
-      <div className="eh-section__index eh-section__index--light" data-reveal>
-        <span>02</span>
-        <span>The shared path</span>
-      </div>
-
       <header className="eh-section-heading" data-reveal>
-        <span className="eh-eyebrow">What members navigate together</span>
-        <h2 id="journey-title">From the first uncertain question to giving back with confidence.</h2>
-        <p>Migration is not one application. It is a sequence of decisions, setbacks, transitions, and new beginnings—and every stage carries knowledge worth sharing.</p>
+        <span className="eh-eyebrow">The shared path</span>
+        <h2 id="journey-title">The move is bigger than the application.</h2>
+        <p>Members support one another across the whole journey—from choosing a direction to building a career and a sense of belonging after arrival.</p>
       </header>
 
       <ol className="eh-journey__list">

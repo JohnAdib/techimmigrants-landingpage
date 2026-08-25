@@ -1,19 +1,18 @@
 import {
   ArrowUpRight,
   Github,
-  Linkedin,
-  MessagesSquare,
+  Globe2,
   Presentation,
-  Radio,
+  Send,
   Youtube,
   type LucideIcon,
 } from "lucide-react";
 import { communityChannels, type CommunityChannel } from "../englishHomeContent";
 
 const channelIcons: Record<CommunityChannel["id"], LucideIcon> = {
-  telegram: MessagesSquare,
+  telegram: Send,
   youtube: Youtube,
-  public: Radio,
+  public: Globe2,
   github: Github,
   workshops: Presentation,
 };
@@ -21,43 +20,45 @@ const channelIcons: Record<CommunityChannel["id"], LucideIcon> = {
 export function CommunityActionSection() {
   return (
     <section className="eh-section eh-community" id="community" aria-labelledby="community-title">
-      <div className="eh-section__index" data-reveal>
-        <span>05</span>
-        <span>Community in action</span>
-      </div>
-
-      <header className="eh-section-heading eh-section-heading--wide" data-reveal>
-        <span className="eh-eyebrow">One community, many ways knowledge travels</span>
-        <h2 id="community-title">Conversation becomes context. Context becomes something useful.</h2>
-        <p>Most member-facing activity happens in Persian. Each channel plays a different role in keeping lived experience practical, discoverable, and in motion.</p>
+      <header className="eh-section-heading eh-section-heading--split" data-reveal>
+        <div>
+          <span className="eh-eyebrow">Where the community meets</span>
+          <h2 id="community-title">Choose the conversation you need.</h2>
+        </div>
+        <p>Most member activity happens in Persian. Each channel is built for a different depth of conversation—from a quick peer answer to a full interview or hands-on workshop.</p>
       </header>
 
       <div className="eh-channel-grid">
         {communityChannels.map((channel, index) => {
           const Icon = channelIcons[channel.id];
+          const className = `eh-channel eh-channel--${channel.id}${index < 2 ? " eh-channel--featured" : ""}`;
+
           return (
-            <article className={`eh-channel eh-channel--${channel.id}`} key={channel.id} data-reveal>
+            <article className={className} key={channel.id} data-reveal>
               <div className="eh-channel__topline">
+                <span className="eh-channel__icon"><Icon aria-hidden="true" /></span>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <Icon aria-hidden="true" />
               </div>
-              <span className="eh-channel__label">{channel.label}</span>
-              <h3>{channel.title}</h3>
-              <p>{channel.description}</p>
-              {channel.badge && <small className="eh-language-badge">{channel.badge}</small>}
-              <div className="eh-channel__links">
-                {channel.links.map((link) => (
-                  <a
-                    href={link.href}
-                    key={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                  >
-                    {link.label} <ArrowUpRight aria-hidden="true" />
-                  </a>
-                ))}
+              <div className="eh-channel__copy">
+                <span className="eh-channel__label">{channel.label}</span>
+                <h3>{channel.title}</h3>
+                <p>{channel.description}</p>
               </div>
-              {channel.id === "public" && <Linkedin className="eh-channel__watermark" aria-hidden="true" />}
+              <div className="eh-channel__footer">
+                {channel.badge ? <small className="eh-language-badge">{channel.badge}</small> : <span />}
+                <div className="eh-channel__links">
+                  {channel.links.map((link) => (
+                    <a
+                      href={link.href}
+                      key={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                    >
+                      {link.label} <ArrowUpRight aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </article>
           );
         })}

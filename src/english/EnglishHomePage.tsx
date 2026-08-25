@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CommunityActionSection } from "./components/CommunityActionSection";
 import { EnglishHeader } from "./components/EnglishHeader";
 import { GiveForwardSection } from "./components/GiveForwardSection";
@@ -11,6 +11,7 @@ import { useEnglishHomeMotion } from "./useEnglishHomeMotion";
 
 export default function EnglishHomePage() {
   const pageRef = useRef<HTMLDivElement>(null);
+  const [motionPaused, setMotionPaused] = useState(false);
   useEnglishHomeMotion(pageRef);
 
   useEffect(() => {
@@ -19,9 +20,16 @@ export default function EnglishHomePage() {
   }, []);
 
   return (
-    <div className="eh" id="top" ref={pageRef}>
+    <div
+      className={motionPaused ? "eh eh-motion-paused" : "eh"}
+      id="top"
+      ref={pageRef}
+    >
       <a className="eh-skip" href="#main-content">Skip to the main content</a>
-      <EnglishHeader />
+      <EnglishHeader
+        motionPaused={motionPaused}
+        onToggleMotion={() => setMotionPaused((isPaused) => !isPaused)}
+      />
       <main id="main-content">
         <HeroSection />
         <GiveForwardSection />

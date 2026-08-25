@@ -8,7 +8,8 @@ test("the root HTML entry describes the English homepage", () => {
   const html = readFileSync(projectFile("index.html"), "utf8");
 
   assert.match(html, /<html lang="en" dir="ltr">/);
-  assert.match(html, /<meta name="theme-color" content="#203946"/);
+  assert.match(html, /<meta name="theme-color" content="#0b2942"/);
+  assert.doesNotMatch(html, /Sahar Pakseresht|"founder"/);
   assert.match(html, /<link rel="canonical" href="https:\/\/techimmigrants\.com\/"/);
   assert.match(html, /hreflang="fa" href="https:\/\/techimmigrants\.com\/fa\/"/);
 });

@@ -1,47 +1,53 @@
-import { ArrowDownRight, RotateCw } from "lucide-react";
+import { ArrowRight, Compass, Lightbulb, MessagesSquare } from "lucide-react";
 
-const loop = [
-  { number: "01", label: "Someone navigates the hard part" },
-  { number: "02", label: "They share what actually happened" },
-  { number: "03", label: "The next person starts with context" },
+const flow = [
+  {
+    icon: Compass,
+    label: "Navigate",
+    title: "Someone finds a way through.",
+    description: "A stronger CV, a better interview answer, a clearer relocation decision, or simply the confidence to keep going.",
+  },
+  {
+    icon: MessagesSquare,
+    label: "Share",
+    title: "They explain what actually happened.",
+    description: "Not a polished success story—the decisions, mistakes, trade-offs, and context that made the difference.",
+  },
+  {
+    icon: Lightbulb,
+    label: "Advance",
+    title: "The next person starts further ahead.",
+    description: "Experience returns to the community as practical guidance that another person can adapt to their own path.",
+  },
 ] as const;
 
 export function GiveForwardSection() {
   return (
     <section className="eh-section eh-story" id="story" aria-labelledby="story-title">
-      <div className="eh-section__index" data-reveal>
-        <span>01</span>
-        <span>The idea</span>
-      </div>
+      <header className="eh-section-heading" data-reveal>
+        <span className="eh-eyebrow">How the community works</span>
+        <h2 id="story-title">Experience compounds when it is shared.</h2>
+        <p>Every successful move creates knowledge. Tech Immigrants makes sure that knowledge does not stay private.</p>
+      </header>
 
-      <div className="eh-story__headline" data-reveal>
-        <span className="eh-eyebrow">A give-forward community</span>
-        <h2 id="story-title">A difficult path becomes easier when experience can travel back.</h2>
-      </div>
-
-      <div className="eh-story__body" data-reveal>
-        <p>
-          When one member learns how to shape a CV, recover from rejection, navigate an interview, relocate, or build a life in a new country, that knowledge does not disappear into a private success story.
-        </p>
-        <p>
-          It returns through candid interviews, live Q&As, practical resources, workshops, open-source tools, and thousands of everyday peer conversations.
-        </p>
-      </div>
-
-      <blockquote className="eh-pullquote" data-reveal>
-        <span aria-hidden="true">“</span>
-        <p>Those who make the move help the next person make theirs.</p>
-      </blockquote>
-
-      <div className="eh-loop" aria-label="The Tech Immigrants knowledge loop" data-reveal>
-        <RotateCw className="eh-loop__orbit" aria-hidden="true" />
-        {loop.map((item, index) => (
-          <div className="eh-loop__step" key={item.number}>
-            <span>{item.number}</span>
-            <p>{item.label}</p>
-            {index < loop.length - 1 && <ArrowDownRight aria-hidden="true" />}
-          </div>
+      <div className="eh-flow" aria-label="The Tech Immigrants knowledge loop">
+        {flow.map(({ icon: Icon, label, title, description }, index) => (
+          <article className="eh-flow__step" key={label} data-reveal>
+            <div className="eh-flow__topline">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <Icon aria-hidden="true" />
+            </div>
+            <small>{label}</small>
+            <h3>{title}</h3>
+            <p>{description}</p>
+            {index < flow.length - 1 && <ArrowRight className="eh-flow__arrow" aria-hidden="true" />}
+          </article>
         ))}
+      </div>
+
+      <div className="eh-principle" data-reveal>
+        <span>THE GIVE-FORWARD PRINCIPLE</span>
+        <p>Those who make the move help the next person make theirs.</p>
       </div>
     </section>
   );

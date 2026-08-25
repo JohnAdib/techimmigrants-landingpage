@@ -39,10 +39,10 @@ export const siteLinks = {
 } as const;
 
 export const navigation = [
-  { label: "Our story", href: "#story" },
-  { label: "The shared path", href: "#journey" },
-  { label: "Reach", href: "#reach" },
-  { label: "In action", href: "#community" },
+  { label: "How it works", href: "#story" },
+  { label: "The path", href: "#journey" },
+  { label: "Community reach", href: "#reach" },
+  { label: "Join the community", href: "#community" },
 ] as const;
 
 export const journeyStages: JourneyStage[] = [
@@ -124,11 +124,11 @@ export const impactStats: ImpactStat[] = [
 ];
 
 export const recurringNeeds = [
-  "Clarity",
-  "Confidence",
-  "Direction",
-  "Storytelling",
-  "A trusted network",
+  { title: "Clarity", description: "A realistic picture of the path ahead." },
+  { title: "Confidence", description: "The language to explain what you can do." },
+  { title: "Direction", description: "A useful next step instead of more noise." },
+  { title: "Storytelling", description: "Experience shaped for a new market." },
+  { title: "Trusted networks", description: "People who understand the context." },
 ] as const;
 
 export const communityChannels: CommunityChannel[] = [
