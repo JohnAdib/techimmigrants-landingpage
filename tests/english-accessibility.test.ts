@@ -232,7 +232,27 @@ test("community insight copy stays page-scoped and typographic emphasis stays un
 
   assert.doesNotMatch(listening, /remain private/i);
   assert.match(listening, /No member messages are displayed or quoted on this page/);
-  assert.equal(css.match(/font-family:\s*"Newsreader"/g)?.length, 1);
+  assert.match(css, /\.eh-hero h1 em\s*{[^}]*font-family:\s*"Newsreader"/s);
+  assert.match(css, /\.eh-stat__value\s*{[^}]*font-family:\s*"Newsreader"/s);
+});
+
+test("the metric section keeps its original editorial composition", () => {
+  const impact = readProjectFile("src/english/components/ImpactSection.tsx");
+  const css = readProjectFile("src/english/english-home.css");
+  const impactRule = css.match(/\.eh-impact\s*{([^}]*)}/)?.[1] ?? "";
+  const impactDecoration = css.match(/\.eh-impact::after\s*{([^}]*)}/)?.[1] ?? "";
+  const impactInner = css.match(/\.eh-impact__inner\s*{([^}]*)}/)?.[1] ?? "";
+  const impactHeading = css.match(/\.eh-impact__heading\s*{([^}]*)}/)?.[1] ?? "";
+  const stat = css.match(/\.eh-stat\s*{([^}]*)}/)?.[1] ?? "";
+
+  assert.match(impact, /The numbers are proof of attention/);
+  assert.match(impact, /Trust over time/);
+  assert.match(impactRule, /background-size:\s*3rem 3rem/);
+  assert.match(impactDecoration, /border-radius:\s*50%/);
+  assert.match(impactDecoration, /box-shadow:/);
+  assert.match(impactInner, /grid-template-columns:\s*repeat\(12, minmax\(0, 1fr\)\)/);
+  assert.match(impactHeading, /grid-column:\s*3 \/ 11/);
+  assert.match(stat, /min-height:\s*14rem/);
 });
 
 test("mobile statistic sizing targets values without enlarging definitions", () => {

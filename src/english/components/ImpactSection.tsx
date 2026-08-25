@@ -5,9 +5,9 @@ export function ImpactSection() {
   return (
     <section className="eh-impact" id="reach" aria-labelledby="impact-title">
       <div className="eh-impact__topline" aria-hidden="true">
-        <span>Six years together</span>
-        <span>Attention with depth</span>
-        <span>Organic by design</span>
+        <span>Trust over time</span>
+        <span>Reach with depth</span>
+        <span>Growth without paid ads</span>
       </div>
 
       <div className="eh-impact__inner">
@@ -17,9 +17,9 @@ export function ImpactSection() {
         </div>
 
         <header className="eh-impact__heading" data-reveal>
-          <span className="eh-eyebrow">Built through usefulness, not advertising</span>
-          <h2 id="impact-title">People return when the conversation helps.</h2>
-          <p>These figures represent years of questions answered, stories shared, and practical knowledge made easier to find.</p>
+          <span className="eh-eyebrow">A community people choose to return to</span>
+          <h2 id="impact-title">The numbers are proof of attention. The real value is what people do with it.</h2>
+          <p>Reach matters here because it gives useful experience somewhere to go—and gives recurring questions a chance to become shared resources.</p>
         </header>
 
         <dl className="eh-stats">
