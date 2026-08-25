@@ -2,42 +2,43 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import Index from "./pages/Index";
-import Interviews from "./pages/Interviews";
-import Mentors from "./pages/Mentors";
-import Resources from "./pages/Resources";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import NotFound from "./pages/NotFound";
+import { BrowserRouter } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
+import { resolveAppLocale } from "./routing/appLocale";
 
-const WorkshopsPage = lazy(() => import("./workshops/WorkshopsPage"));
-const ResumeWorkshopPage = lazy(() => import("./workshops/resume/ResumeWorkshopPage"));
+const EnglishRoutes = lazy(() => import("./english/EnglishRoutes"));
+const PersianRoutes = lazy(() => import("./PersianRoutes"));
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename="/fa">
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/interviews" element={<Interviews />} />
-          <Route path="/mentors" element={<Mentors />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/workshops" element={<Suspense fallback={null}><WorkshopsPage /></Suspense>} />
-          <Route path="/workshops/resume" element={<Suspense fallback={null}><ResumeWorkshopPage /></Suspense>} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const locale = resolveAppLocale(window.location.pathname);
+  const isPersian = locale === "fa";
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    document.documentElement.dir = isPersian ? "rtl" : "ltr";
+  }, [isPersian, locale]);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter basename={isPersian ? "/fa" : undefined}>
+          <Suspense
+            fallback={
+              <div className="min-h-screen bg-background" aria-live="polite">
+                <span className="sr-only">Loading Tech Immigrants</span>
+              </div>
+            }
+          >
+            {isPersian ? <PersianRoutes /> : <EnglishRoutes />}
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

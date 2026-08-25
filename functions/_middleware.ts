@@ -10,8 +10,8 @@
 // Behaviour:
 //   - Paths with a file extension  → pass through to the static asset.
 //   - `/fa/*` (no file extension)  → serve `/fa/index.html` (SPA entry).
-//   - Everything else              → pass through (lets `_redirects`
-//                                    handle `/` → `/fa/` etc.).
+//   - Everything else              → pass through so the English root
+//                                    entry and its static assets are served.
 
 interface Env {
   ASSETS: Fetcher;

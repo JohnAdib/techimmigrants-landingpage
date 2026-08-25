@@ -1,6 +1,8 @@
-# Tech Immigrants Landing Page
+# Tech Immigrants Website
 
-Landing page for the [Tech Immigrants](https://techimmigrants.com) community — a volunteer-driven community sharing real immigration and tech career experiences from Iranians working in the tech industry worldwide.
+Website for the [Tech Immigrants](https://techimmigrants.com) community — a volunteer-driven community sharing real immigration and tech career experiences from Iranians working in the tech industry worldwide.
+
+The English institutional homepage is served at `/`. The Persian community site, including its articles, interviews, resources, and workshops, is served at `/fa/`.
 
 ## Tech Stack
 
@@ -26,6 +28,6 @@ npm run dev
 
 ## Deployment
 
-Deployed on Cloudflare Pages at `techimmigrants.com/fa/`.
+Deployed on Cloudflare Pages at `techimmigrants.com`. The Vite build emits separate English and Persian HTML entries, while the Pages middleware and `_redirects` keep extensionless `/fa/*` routes on the Persian application.
 
 Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as environment variables in Cloudflare Pages dashboard.
