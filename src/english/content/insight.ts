@@ -1,3 +1,5 @@
+import { communityStats } from "./communityData";
+
 export interface RecurringNeed {
   title: string;
   description: string;
@@ -11,7 +13,7 @@ export const insightHeading = {
 
 export const insightSignal = {
   label: "Conversations studied",
-  value: "~200K",
+  value: communityStats.conversationsStudied,
   description:
     "Telegram messages analysed for recurring themes and practical needs.",
   privacy: "No member messages are displayed or quoted on this page.",

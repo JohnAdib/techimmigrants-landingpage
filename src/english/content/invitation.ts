@@ -1,6 +1,6 @@
 import { siteLinks } from "./site";
 
-export type InvitationKind = "telegram" | "youtube" | "persian";
+export type InvitationKind = "telegram" | "youtube";
 
 export interface InvitationCard {
   id: InvitationKind;
@@ -13,7 +13,7 @@ export interface InvitationCard {
 export const invitationHeading = {
   eyebrow: "Start where it helps most",
   title: "The community is already talking.",
-  lead: "Ask a question, hear the full story, or explore the Persian site and its resources.",
+  lead: "Ask a question while it is still fresh, or sit with the full story from someone who has already made the move.",
 } as const;
 
 export const invitationCards: InvitationCard[] = [
@@ -29,11 +29,5 @@ export const invitationCards: InvitationCard[] = [
     overline: "Interviews and live sessions",
     title: "Watch on YouTube",
     href: siteLinks.youtube,
-  },
-  {
-    id: "persian",
-    overline: "Persian website",
-    title: "Explore the full community",
-    href: siteLinks.persian,
   },
 ];

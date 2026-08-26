@@ -11,21 +11,6 @@
   font-size: var(--size-2xs);
 }
 
-.ti-footer__top {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: color var(--motion-hover);
-}
-
-.ti-footer__top:hover {
-  color: var(--text-primary);
-}
-
-.ti-footer__top svg {
-  width: 0.8rem;
-  height: 0.8rem;
-}
 
 @media (max-width: 1040px) {
   .ti-footer__inner {

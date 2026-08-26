@@ -20,7 +20,7 @@
 .ti-footer__inner {
   display: grid;
   gap: clamp(2rem, 4vw, 3.5rem);
-  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
   padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
 }
 

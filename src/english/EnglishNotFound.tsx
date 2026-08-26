@@ -1,7 +1,5 @@
 import { ActionButton } from "./components/ActionButton";
 import { BrandMark } from "./components/BrandMark";
-import { TextLink } from "./components/TextLink";
-import { siteLinks } from "./content/site";
 
 export default function EnglishNotFound() {
   return (
@@ -11,12 +9,10 @@ export default function EnglishNotFound() {
         <span className="ti-eyebrow">404 · Beyond this route</span>
         <h1>This path has not been mapped yet.</h1>
         <p className="ti-lead">
-          The community is still here. Return to the English homepage or continue to the
-          Persian site.
+          The community is still here. Head back to the homepage and pick a channel.
         </p>
         <div className="ti-not-found__actions">
           <ActionButton href="/">Back to the homepage</ActionButton>
-          <TextLink href={siteLinks.persian}>Persian website</TextLink>
         </div>
       </div>
     </main>

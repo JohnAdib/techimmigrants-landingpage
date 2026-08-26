@@ -28,9 +28,3 @@
   width: 0.85rem;
   height: 0.85rem;
 }
-
-.ti-footer__page {
-  display: grid;
-  align-content: start;
-  gap: var(--space-5);
-}

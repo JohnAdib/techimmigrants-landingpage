@@ -46,14 +46,16 @@ export function ChannelCard({ channel, index, featured }: ChannelCardProps) {
 
       <div className="ti-channel__foot">
         {channel.badge ? <small className="ti-badge">{channel.badge}</small> : <span />}
-        <div className="ti-channel__links">
-          {channel.links.map((link) => (
-            <a key={link.href} href={link.href} {...externalLinkProps(link.href)}>
-              {link.label}
-              <ArrowUpRight aria-hidden="true" />
-            </a>
-          ))}
-        </div>
+        {channel.links.length > 0 ? (
+          <div className="ti-channel__links">
+            {channel.links.map((link) => (
+              <a key={link.href} href={link.href} {...externalLinkProps(link.href)}>
+                {link.label}
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        ) : null}
       </div>
     </article>
   );

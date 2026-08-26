@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { useRevealOnScroll } from "./hooks/useRevealOnScroll";
-import { cx } from "./lib/cx";
 import { ChannelsSection } from "./sections/ChannelsSection";
 import { HeroSection } from "./sections/HeroSection";
 import { HowItWorksSection } from "./sections/HowItWorksSection";
@@ -14,7 +13,6 @@ import { TopicTicker } from "./sections/TopicTicker";
 
 export default function EnglishHomePage() {
   const pageRef = useRef<HTMLDivElement>(null);
-  const [motionPaused, setMotionPaused] = useState(false);
   useRevealOnScroll(pageRef);
 
   useEffect(() => {
@@ -23,15 +21,12 @@ export default function EnglishHomePage() {
   }, []);
 
   return (
-    <div className={cx("ti", motionPaused && "ti-motion-paused")} id="top" ref={pageRef}>
+    <div className="ti" id="top" ref={pageRef}>
       <a className="ti-skip" href="#main-content">
         Skip to the main content
       </a>
 
-      <SiteHeader
-        motionPaused={motionPaused}
-        onToggleMotion={() => setMotionPaused((paused) => !paused)}
-      />
+      <SiteHeader />
 
       <main id="main-content">
         <HeroSection />

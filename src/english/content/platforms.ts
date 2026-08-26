@@ -1,12 +1,6 @@
-import { siteLinks } from "./site";
+import { communityStats, socialProfiles } from "./communityData";
 
-export type PlatformId =
-  | "telegram"
-  | "youtube"
-  | "x"
-  | "linkedin"
-  | "instagram"
-  | "github";
+export type PlatformId = keyof typeof socialProfiles;
 
 export interface Platform {
   id: PlatformId;
@@ -21,46 +15,46 @@ export const platforms: Platform[] = [
   {
     id: "telegram",
     name: "Telegram",
-    handle: "@techimmigrants",
-    href: siteLinks.telegram,
-    metric: "25K+",
+    metric: communityStats.telegramMembers,
     metricLabel: "members",
+    ...socialProfiles.telegram,
+    href: socialProfiles.telegram.url,
   },
   {
     id: "youtube",
     name: "YouTube",
-    handle: "@techimmigrants",
-    href: siteLinks.youtube,
-    metric: "10K+",
+    metric: communityStats.youtubeSubscribers,
     metricLabel: "subscribers",
+    ...socialProfiles.youtube,
+    href: socialProfiles.youtube.url,
   },
   {
     id: "x",
     name: "X",
-    handle: "@tech_immigrants",
-    href: siteLinks.x,
-    metric: "10K+",
+    metric: communityStats.xFollowers,
     metricLabel: "followers",
+    ...socialProfiles.x,
+    href: socialProfiles.x.url,
   },
   {
     id: "linkedin",
     name: "LinkedIn",
-    handle: "techimmigrants",
-    href: siteLinks.linkedin,
-    metric: "9K+",
+    metric: communityStats.linkedinFollowers,
     metricLabel: "followers",
+    ...socialProfiles.linkedin,
+    href: socialProfiles.linkedin.url,
   },
   {
     id: "instagram",
     name: "Instagram",
-    handle: "@techimmigrants",
-    href: siteLinks.instagram,
+    ...socialProfiles.instagram,
+    href: socialProfiles.instagram.url,
   },
   {
     id: "github",
     name: "GitHub",
-    handle: "TechImmigrants",
-    href: siteLinks.github,
+    ...socialProfiles.github,
+    href: socialProfiles.github.url,
   },
 ];
 

@@ -44,13 +44,23 @@
 }
 
 .ti-flow__node {
+  --pulse-rgb: var(--accent-rgb);
+
   width: 0.7rem;
   height: 0.7rem;
   margin-bottom: 0.4rem;
   border: 2px solid var(--surface-raised);
   border-radius: 50%;
   background: var(--action-primary);
-  box-shadow: 0 0 0 3px rgb(var(--accent-rgb) / 0.16);
+  animation: ti-pulse-ring 2.9s ease-out infinite;
+}
+
+.ti-flow__step:nth-child(3) .ti-flow__node {
+  animation-delay: -0.95s;
+}
+
+.ti-flow__step:nth-child(4) .ti-flow__node {
+  animation-delay: -1.9s;
 }
 
 .ti-flow__step p {

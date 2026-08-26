@@ -1,7 +1,6 @@
 import { ActionButton } from "../components/ActionButton";
 import { ChannelBoard } from "../components/ChannelBoard";
 import { LiveDot } from "../components/LiveDot";
-import { TextLink } from "../components/TextLink";
 import { heroContent } from "../content/hero";
 
 export function HeroSection() {
@@ -34,14 +33,11 @@ export function HeroSection() {
           </ActionButton>
         </div>
 
-        <div className="ti-hero__aside">
-          <TextLink href={actions.persian.href}>{actions.persian.label}</TextLink>
-          <ul className="ti-hero__trust">
-            {trust.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
+        <ul className="ti-hero__trust">
+          {trust.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       </div>
 
       <ChannelBoard />

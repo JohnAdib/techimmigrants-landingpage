@@ -40,8 +40,30 @@
   }
 
   .ti-hero__actions .ti-button {
-    flex: 1 1 11rem;
+    min-height: 2.8rem;
+    flex: 1 1 auto;
     justify-content: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.78rem;
+  }
+
+  .ti-hero__actions .ti-button__label {
+    white-space: nowrap;
+  }
+
+  .ti-hero__actions .ti-button__glyph {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .ti-hero__actions .ti-button__glyph svg {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  .ti-hero__actions .ti-button > svg {
+    display: none;
   }
 
   .ti-hero__aside {

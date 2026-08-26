@@ -28,13 +28,7 @@ export function InvitationSection() {
                 {...externalLinkProps(card.href)}
               >
                 <span className="ti-invite__glyph">
-                  {card.id === "persian" ? (
-                    <span lang="fa" dir="rtl">
-                      فا
-                    </span>
-                  ) : (
-                    <PlatformIcon platform={card.id} />
-                  )}
+                  <PlatformIcon platform={card.id} />
                 </span>
                 <span className="ti-invite__copy">
                   <small>{card.overline}</small>

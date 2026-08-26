@@ -46,11 +46,11 @@
 
 @keyframes ti-pulse-ring {
   0% {
-    box-shadow: 0 0 0 0 rgb(52 200 138 / 0.55);
+    box-shadow: 0 0 0 0 rgb(var(--pulse-rgb) / 0.5);
   }
   70%,
   100% {
-    box-shadow: 0 0 0 0.55rem rgb(52 200 138 / 0);
+    box-shadow: 0 0 0 0.6rem rgb(var(--pulse-rgb) / 0);
   }
 }
 
@@ -75,11 +75,6 @@
   }
 }
 
-.ti-motion-paused *,
-.ti-motion-paused *::before,
-.ti-motion-paused *::after {
-  animation-play-state: paused !important;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .ti *,

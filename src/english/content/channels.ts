@@ -67,6 +67,6 @@ export const communityChannels: CommunityChannel[] = [
     description:
       "Small workshops use real examples and clear next steps to turn community insight into action.",
     badge: "Persian-language",
-    links: [{ label: "View workshops", href: siteLinks.workshops }],
+    links: [],
   },
 ];

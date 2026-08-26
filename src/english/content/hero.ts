@@ -1,8 +1,12 @@
+import { spellNumber } from "../lib/spellNumber";
+import { channelCount, communityStats, communityYears } from "./communityData";
 import { siteLinks } from "./site";
 
+const years = communityYears();
+
 export const heroContent = {
-  status: "54K+ people across six channels",
-  headingLead: "Six years of Persian speakers in tech",
+  status: `${communityStats.crossPlatformReach} people across ${spellNumber(channelCount).toLowerCase()} channels`,
+  headingLead: `${spellNumber(years)} years of Persian speakers in tech`,
   headingRest: "helping each other",
   headingEmphasis: "move forward.",
   lead:
@@ -10,12 +14,11 @@ export const heroContent = {
   actions: {
     telegram: { label: "Join on Telegram", href: siteLinks.telegram },
     youtube: { label: "Watch on YouTube", href: siteLinks.youtube },
-    persian: { label: "Explore the Persian site", href: siteLinks.persian },
   },
   trust: ["Volunteer-run", "Persian-language", "No paid ads"],
   board: {
     title: "Community channels",
-    total: "54K+",
+    total: communityStats.crossPlatformReach,
     totalLabel: "combined reach",
     note: "Growth without paid acquisition.",
   },
