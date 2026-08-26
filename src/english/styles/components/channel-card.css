@@ -1,0 +1,52 @@
+.ti-channel {
+  position: relative;
+  display: flex;
+  min-height: 21rem;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  grid-column: span 4;
+  overflow: hidden;
+  padding: var(--space-5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+  box-shadow: var(--elevation-flat);
+  transition:
+    transform var(--motion-hover),
+    border-color var(--motion-hover),
+    box-shadow var(--motion-hover);
+}
+
+.ti-channel--featured {
+  min-height: 23rem;
+  grid-column: span 6;
+}
+
+.ti-channel::before {
+  position: absolute;
+  z-index: 0;
+  inset: -45% -30% auto auto;
+  width: 22rem;
+  height: 22rem;
+  content: "";
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(var(--brand) / 0.13), transparent 62%);
+  opacity: 0.75;
+  transition: opacity var(--motion-hover);
+}
+
+.ti-channel:hover {
+  transform: translateY(-4px);
+  border-color: rgb(var(--brand) / 0.38);
+  box-shadow: var(--elevation-floating);
+}
+
+.ti-channel:hover::before {
+  opacity: 1;
+}
+
+.ti-channel > * {
+  position: relative;
+  z-index: 1;
+}

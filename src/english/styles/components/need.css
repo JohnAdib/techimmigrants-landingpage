@@ -1,0 +1,66 @@
+.ti-need {
+  display: grid;
+  align-items: center;
+  gap: var(--space-4);
+  grid-template-columns: 2.1rem minmax(0, 1fr) 5rem;
+  padding: 0.95rem 1.3rem;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background var(--motion-hover);
+}
+
+.ti-need:last-child {
+  border-bottom: 0;
+}
+
+.ti-need:hover {
+  background: var(--surface-accent-soft);
+}
+
+.ti-need__index {
+  color: var(--text-accent);
+}
+
+.ti-need h3 {
+  font-size: var(--size-base);
+  font-weight: 650;
+}
+
+.ti-need p {
+  margin-top: 0.15rem;
+  color: var(--text-secondary);
+  font-size: var(--size-xs);
+}
+
+.ti-need__meter {
+  display: block;
+  height: 0.3rem;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--surface-sunken);
+}
+
+.ti-need__meter i {
+  display: block;
+  width: calc(var(--need-rank) / 5 * 100%);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--action-primary), var(--action-warm));
+  transform-origin: left;
+  transition: scale 900ms var(--ease-entrance);
+  transition-delay: calc(var(--need-rank) * 60ms);
+}
+
+.ti.is-motion-ready [data-reveal]:not(.is-visible) .ti-need__meter i {
+  scale: 0 1;
+}
+
+@media (max-width: 560px) {
+  .ti-need {
+    gap: 0.75rem;
+    grid-template-columns: 2.1rem minmax(0, 1fr);
+  }
+
+  .ti-need__meter {
+    display: none;
+  }
+}

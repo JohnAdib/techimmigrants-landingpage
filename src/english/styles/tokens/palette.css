@@ -1,0 +1,50 @@
+:root {
+  --ti-page-canvas: #f2f6fa;
+}
+
+.ti {
+  --blue-50: #f0f8fd;
+  --blue-100: #dff4fc;
+  --blue-200: #bde6f7;
+  --blue-300: #8ad4f1;
+  --blue-400: #3fb2e0;
+  --blue-500: #0b84c6;
+  --blue-600: #0874ad;
+  --blue-700: #075985;
+  --blue-800: #08425f;
+
+  --navy-500: #1c5580;
+  --navy-600: #16456a;
+  --navy-700: #0e3453;
+  --navy-800: #0b2942;
+  --navy-900: #071e32;
+
+  --amber-50: #fdf8ef;
+  --amber-100: #fdf1dd;
+  --amber-200: #f6dcb0;
+  --amber-300: #efc078;
+  --amber-400: #e8a33d;
+  --amber-500: #c9821f;
+  --amber-600: #9a5f16;
+
+  --green-400: #34c88a;
+
+  --neutral-0: #ffffff;
+  --neutral-25: #fafcfd;
+  --neutral-50: #f2f6fa;
+  --neutral-100: #e7eef4;
+  --neutral-200: #d6e1ea;
+  --neutral-300: #b3c4d3;
+  --neutral-400: #8c9cad;
+  --neutral-500: #62758a;
+  --neutral-600: #47607a;
+  --neutral-700: #2c4a66;
+  --neutral-900: #102a43;
+
+  --ink-rgb: 16 42 67;
+  --light-rgb: 255 255 255;
+  --shade-rgb: 3 14 24;
+  --accent-rgb: 11 132 198;
+  --sky-rgb: 84 193 235;
+  --warm-rgb: 232 163 61;
+}

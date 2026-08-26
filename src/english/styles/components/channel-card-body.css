@@ -1,0 +1,76 @@
+.ti-channel__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ti-channel__glyph {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: rgb(var(--brand) / 0.12);
+  color: rgb(var(--brand));
+}
+
+.ti-channel__glyph svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.ti-channel__body {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.ti-channel__kicker {
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-size: var(--size-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ti-channel__body p {
+  color: var(--text-secondary);
+  font-size: var(--size-sm);
+  line-height: 1.65;
+}
+
+.ti-channel__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.ti-channel__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.ti-channel__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.78rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  font-size: var(--size-xs);
+  font-weight: 600;
+  transition:
+    background var(--motion-hover),
+    border-color var(--motion-hover);
+}
+
+.ti-channel__links a:hover {
+  border-color: rgb(var(--brand) / 0.45);
+  background: rgb(var(--brand) / 0.1);
+}
+
+.ti-channel__links svg {
+  width: 0.8rem;
+  height: 0.8rem;
+}

@@ -1,0 +1,16 @@
+@media (max-width: 1040px) {
+  .ti-journey {
+    gap: var(--space-6) var(--space-4);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ti-journey__rail {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .ti-journey {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

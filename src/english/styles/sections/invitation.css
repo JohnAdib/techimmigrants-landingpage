@@ -1,0 +1,19 @@
+.ti-invitation {
+  --slab-glow: 96% 4%;
+
+  display: grid;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.95fr);
+  padding: clamp(1.75rem, 3.6vw, 3.25rem);
+}
+
+.ti-invitation__copy {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ti-invitation__cards {
+  display: grid;
+  gap: 0.6rem;
+}

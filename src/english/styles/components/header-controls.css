@@ -1,0 +1,77 @@
+.ti-motion-toggle {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  color: var(--text-secondary);
+  transition:
+    transform var(--motion-hover),
+    border-color var(--motion-hover);
+}
+
+.ti-motion-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+}
+
+.ti-motion-toggle svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.ti-language {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  transition:
+    transform var(--motion-hover),
+    border-color var(--motion-hover);
+}
+
+.ti-language:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+}
+
+.ti-language > span {
+  font-family: "Vazirmatn", var(--font-sans);
+  font-size: var(--size-sm);
+  font-weight: 600;
+}
+
+.ti-language small {
+  color: var(--text-muted);
+  font-size: var(--size-2xs);
+}
+
+.ti-language svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 760px) {
+  .ti-header {
+    top: 0.6rem;
+    min-height: 3.7rem;
+    margin-top: 0.6rem;
+    padding: 0.5rem 0.55rem 0.5rem 0.75rem;
+    border-radius: 1.1rem;
+    grid-template-columns: 1fr auto;
+  }
+
+  .ti-brand__copy small,
+  .ti-language small,
+  .ti-language svg {
+    display: none;
+  }
+}

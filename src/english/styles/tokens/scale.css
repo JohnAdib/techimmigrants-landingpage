@@ -1,0 +1,49 @@
+.ti {
+  --font-sans: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --size-2xs: 0.625rem;
+  --size-xs: 0.72rem;
+  --size-sm: 0.82rem;
+  --size-base: 0.95rem;
+  --size-md: 1.05rem;
+  --size-lg: clamp(1.15rem, 1.4vw, 1.35rem);
+  --size-xl: clamp(1.45rem, 2.1vw, 1.9rem);
+  --size-2xl: clamp(1.95rem, 3.2vw, 2.75rem);
+  --size-3xl: clamp(2.35rem, 4.4vw, 3.6rem);
+  --size-display: clamp(2.6rem, 5vw, 4.15rem);
+  --size-metric: clamp(2.6rem, 4.4vw, 4.1rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  --radius-xs: 0.6rem;
+  --radius-sm: 0.85rem;
+  --radius-md: 1.125rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2rem;
+  --radius-pill: 999px;
+
+  --dur-fast: 160ms;
+  --dur-base: 240ms;
+  --dur-slow: 680ms;
+
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-entrance: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --shell-wide: 1240px;
+  --shell-text: 1180px;
+  --shell-gutter: 1rem;
+}

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import EnglishHomePage from "./EnglishHomePage";
 import EnglishNotFound from "./EnglishNotFound";
-import "./english-home.css";
+import "./styles/index.css";
 
 export default function EnglishRoutes() {
   return (

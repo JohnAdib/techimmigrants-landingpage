@@ -1,21 +1,22 @@
-import { ArrowLeft } from "lucide-react";
+import { ActionButton } from "./components/ActionButton";
+import { BrandMark } from "./components/BrandMark";
+import { TextLink } from "./components/TextLink";
+import { siteLinks } from "./content/site";
 
 export default function EnglishNotFound() {
   return (
-    <main className="eh eh-not-found">
-      <a className="eh-brand eh-not-found__brand" href="/">
-        <span className="eh-brand__mark" aria-hidden="true">TI</span>
-        <span>Tech Immigrants</span>
-      </a>
-      <div className="eh-not-found__copy">
-        <span className="eh-eyebrow">404 / Beyond this route</span>
+    <main className="ti ti-not-found">
+      <BrandMark href="/" label="Tech Immigrants, back to the homepage" />
+      <div className="ti-not-found__copy">
+        <span className="ti-eyebrow">404 · Beyond this route</span>
         <h1>This path has not been mapped yet.</h1>
-        <p>The community is still here. Return to the English homepage or continue to the Persian site.</p>
-        <div className="eh-actions">
-          <a className="eh-button eh-button--primary" href="/">
-            <ArrowLeft aria-hidden="true" /> Back to the homepage
-          </a>
-          <a className="eh-text-link" href="/fa/" lang="fa" dir="rtl">وب‌سایت فارسی</a>
+        <p className="ti-lead">
+          The community is still here. Return to the English homepage or continue to the
+          Persian site.
+        </p>
+        <div className="ti-not-found__actions">
+          <ActionButton href="/">Back to the homepage</ActionButton>
+          <TextLink href={siteLinks.persian}>Persian website</TextLink>
         </div>
       </div>
     </main>

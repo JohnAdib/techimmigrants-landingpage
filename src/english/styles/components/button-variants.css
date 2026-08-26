@@ -1,0 +1,53 @@
+.ti-button--primary {
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  box-shadow: var(--elevation-accent), inset 0 1px 0 rgb(var(--light-rgb) / 0.24);
+  color: var(--neutral-0);
+}
+
+.ti-button--primary:hover {
+  box-shadow: 0 17px 34px rgb(var(--accent-rgb) / 0.32);
+}
+
+.ti-button--solid {
+  background: linear-gradient(135deg, var(--navy-700), var(--navy-900));
+  box-shadow:
+    0 12px 28px rgb(var(--ink-rgb) / 0.24),
+    inset 0 1px 0 rgb(var(--light-rgb) / 0.14);
+  color: var(--neutral-0);
+}
+
+.ti-button--solid:hover {
+  box-shadow: 0 17px 34px rgb(var(--ink-rgb) / 0.28);
+}
+
+.ti-button--quiet {
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-raised);
+  box-shadow: var(--elevation-flat);
+  color: var(--text-primary);
+}
+
+.ti-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-accent);
+  font-size: var(--size-sm);
+  font-weight: 600;
+}
+
+.ti-text-link span {
+  padding-bottom: 1px;
+  border-bottom: 1px solid currentColor;
+  opacity: 0.92;
+}
+
+.ti-text-link svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  transition: translate var(--motion-hover);
+}
+
+.ti-text-link:hover svg {
+  translate: 0.25rem 0;
+}

@@ -1,0 +1,75 @@
+.ti-impact {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgb(var(--light-rgb) / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--light-rgb) / 0.035) 1px, transparent 1px),
+    var(--navy-800);
+  background-size: 3rem 3rem;
+  animation: ti-grid-pan 46s linear infinite;
+}
+
+.ti-impact::after {
+  position: absolute;
+  right: -10rem;
+  bottom: -14rem;
+  width: 34rem;
+  height: 34rem;
+  content: "";
+  border: 1px solid rgb(var(--light-rgb) / 0.12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4rem rgb(var(--light-rgb) / 0.025),
+    0 0 0 8rem rgb(var(--light-rgb) / 0.018);
+}
+
+.ti-impact__topline {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0.75rem max(1.5rem, calc((100vw - var(--shell-wide)) / 2));
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--blue-800);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.ti-impact__inner {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+}
+
+.ti-impact__head {
+  display: grid;
+  max-width: 44rem;
+  gap: var(--space-3);
+}
+
+.ti-impact__head h2 {
+  font-size: var(--size-3xl);
+}
+
+.ti-impact__note {
+  max-width: 62rem;
+  margin-top: 1.25rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .ti-impact__topline span:nth-child(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .ti-impact__topline span:last-child {
+    display: none;
+  }
+}

@@ -1,0 +1,27 @@
+.ti-nav {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 0.2rem;
+  padding: 0.25rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: rgb(var(--light-rgb) / 0.5);
+  font-size: var(--size-xs);
+  font-weight: 600;
+}
+
+.ti-nav a {
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition:
+    background var(--motion-hover),
+    color var(--motion-hover);
+}
+
+.ti-nav a:hover {
+  background: var(--neutral-0);
+  color: var(--text-accent);
+}

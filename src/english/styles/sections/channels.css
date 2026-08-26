@@ -1,0 +1,32 @@
+.ti-channels {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+@media (max-width: 1040px) {
+  .ti-channel,
+  .ti-channel--featured {
+    min-height: 20rem;
+    grid-column: span 6;
+  }
+
+  .ti-channels > :last-child {
+    grid-column: 4 / 10;
+  }
+}
+
+@media (max-width: 760px) {
+  .ti-channel,
+  .ti-channel--featured,
+  .ti-channels > :last-child {
+    min-height: 0;
+    grid-column: span 12;
+  }
+
+  .ti-channel__foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
