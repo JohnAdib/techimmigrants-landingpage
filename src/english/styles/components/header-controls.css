@@ -35,10 +35,12 @@
 }
 
 @media (max-width: 760px) {
+  .ti {
+    --shell-top: 0.6rem;
+  }
+
   .ti-header {
-    top: 0.6rem;
     min-height: 3.7rem;
-    margin-top: 0.6rem;
     padding: 0.5rem 0.55rem 0.5rem 0.75rem;
     border-radius: 1.1rem;
     grid-template-columns: 1fr auto;

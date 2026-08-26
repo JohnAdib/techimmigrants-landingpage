@@ -2,6 +2,7 @@
   position: relative;
   min-height: 100vh;
   overflow: clip;
+  padding-top: var(--shell-top);
   direction: ltr;
   background:
     radial-gradient(circle at 6% 2%, rgb(var(--accent-rgb) / 0.1), transparent 30rem),

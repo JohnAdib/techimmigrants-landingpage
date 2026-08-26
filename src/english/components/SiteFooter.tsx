@@ -4,6 +4,7 @@ import { currentMonth } from "../reportingPeriod";
 import { BrandMark } from "./BrandMark";
 import { FooterChannels } from "./FooterChannels";
 import { FooterColumn } from "./FooterColumn";
+import { LanguageSwitch } from "./LanguageSwitch";
 import { LiveDot } from "./LiveDot";
 
 export function SiteFooter() {
@@ -12,11 +13,12 @@ export function SiteFooter() {
       <div className="ti-shell--wide ti-footer__inner">
         <div className="ti-footer__brand">
           <BrandMark hint={brand.promise} />
-          <p>{brand.mission}</p>
+          <p>{brand.description}</p>
           <span className="ti-footer__status ti-label">
             <LiveDot />
             Live · {currentMonth}
           </span>
+          <LanguageSwitch />
         </div>
 
         <FooterChannels />

@@ -14,8 +14,8 @@ export const brand = {
   name: "Tech Immigrants",
   logo: "/brand-mark.png",
   tagline: "Community across borders",
-  mission:
-    "Practical experience for Persian speakers building tech careers and lives across borders.",
+  description:
+    "A volunteer-run community of 54K+ Persian speakers in tech. Real experience on CVs, interviews, visas, relocation, and life after the move.",
   promise: "Powered by community.",
   persianLabel: "فارسی",
   persianHint: "Persian site",
