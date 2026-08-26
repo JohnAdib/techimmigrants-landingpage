@@ -14,9 +14,9 @@ const years = communityYears();
 
 export const impactHeading = {
   eyebrow: "Community reach",
-  title: `${spellNumber(years)} years, ${spellNumber(channelCount).toLowerCase()} channels, no advertising.`,
+  title: `${spellNumber(years)} years, ${spellNumber(channelCount).toLowerCase()} channels, one community.`,
   lead: "Every number below links to the place it came from. Check any of them.",
-  topline: ["Trust over time", "Reach with depth", "Growth without paid ads"],
+  topline: ["Trust over time", "Reach with depth", "Built by members"],
 } as const;
 
 export const impactStats: ImpactStat[] = [

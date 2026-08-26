@@ -15,12 +15,12 @@ export const heroContent = {
     telegram: { label: "Join on Telegram", href: siteLinks.telegram },
     youtube: { label: "Watch on YouTube", href: siteLinks.youtube },
   },
-  trust: ["Volunteer-run", "Persian-language", "No paid ads"],
+  trust: ["Volunteer-run", "Persian-language", "Peer-led"],
   board: {
     title: "Community channels",
     total: communityStats.crossPlatformReach,
     totalLabel: "combined reach",
-    note: "Growth without paid acquisition.",
+    note: "Grown through useful conversations.",
   },
 } as const;
 
