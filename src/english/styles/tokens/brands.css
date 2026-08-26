@@ -1,0 +1,55 @@
+.ti {
+  --brand: var(--accent-rgb);
+  --brand-telegram: 34 158 217;
+  --brand-youtube: 224 62 62;
+  --brand-x: 25 33 43;
+  --brand-linkedin: 10 102 194;
+  --brand-instagram: 205 58 126;
+  --brand-github: 36 41 47;
+}
+
+.ti-surface--inverse {
+  --brand-x: 219 232 243;
+  --brand-github: 208 224 238;
+}
+
+.ti [data-platform="telegram"] {
+  --brand: var(--brand-telegram);
+}
+
+.ti [data-platform="youtube"] {
+  --brand: var(--brand-youtube);
+}
+
+.ti [data-platform="x"] {
+  --brand: var(--brand-x);
+}
+
+.ti [data-platform="linkedin"] {
+  --brand: var(--brand-linkedin);
+}
+
+.ti [data-platform="instagram"] {
+  --brand: var(--brand-instagram);
+}
+
+.ti [data-platform="github"] {
+  --brand: var(--brand-github);
+}
+
+.ti [data-channel="telegram"] {
+  --brand: var(--brand-telegram);
+}
+
+.ti [data-channel="youtube"] {
+  --brand: var(--brand-youtube);
+}
+
+.ti [data-channel="github"] {
+  --brand: var(--brand-github);
+}
+
+.ti [data-channel="public"],
+.ti [data-channel="workshops"] {
+  --brand: var(--accent-rgb);
+}

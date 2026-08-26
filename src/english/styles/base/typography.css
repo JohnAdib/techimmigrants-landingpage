@@ -1,0 +1,65 @@
+.ti :where(h1, h2, h3, h4) {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.ti :where(h1) {
+  font-size: var(--size-display);
+  letter-spacing: -0.04em;
+}
+
+.ti :where(h2) {
+  font-size: var(--size-2xl);
+}
+
+.ti :where(h3) {
+  font-size: var(--size-lg);
+  line-height: 1.25;
+}
+
+:where(.ti) :where(p) {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+:where(.ti) :where(em) {
+  font-style: normal;
+}
+
+.ti .ti-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-size: var(--size-2xs);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ti .ti-label {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--size-2xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ti .ti-lead {
+  max-width: 44rem;
+  color: var(--text-secondary);
+  font-size: var(--size-md);
+  line-height: 1.7;
+}
+
+.ti .ti-serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}

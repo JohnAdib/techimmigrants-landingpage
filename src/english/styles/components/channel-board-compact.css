@@ -1,0 +1,25 @@
+@media (max-width: 700px) {
+  .ti-board {
+    padding: 0.6rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .ti-channel-row {
+    gap: 0.65rem;
+    grid-template-columns: 2.1rem minmax(0, 1fr) auto 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .ti-channel-row__glyph {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  .ti-channel-row__metric small {
+    display: none;
+  }
+
+  .ti-board__foot {
+    padding: 0.7rem 0.5rem 0.3rem;
+  }
+}

@@ -1,0 +1,24 @@
+.ti-not-found {
+  display: grid;
+  min-height: 100vh;
+  align-content: center;
+  justify-items: start;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  width: min(calc(100% - 2rem), 46rem);
+  margin-inline: auto;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.ti-not-found__copy {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+}
+
+.ti-not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.5rem;
+  margin-top: var(--space-2);
+}

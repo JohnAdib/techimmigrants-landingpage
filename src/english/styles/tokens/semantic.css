@@ -1,0 +1,38 @@
+.ti {
+  --surface-canvas: var(--neutral-50);
+  --surface-raised: var(--neutral-0);
+  --surface-sunken: var(--neutral-100);
+  --surface-glass: rgb(var(--light-rgb) / 0.74);
+  --surface-glass-strong: rgb(var(--light-rgb) / 0.92);
+  --surface-accent-soft: var(--blue-100);
+  --surface-warm-soft: var(--amber-100);
+
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-muted: var(--neutral-500);
+  --text-accent: var(--blue-700);
+  --text-warm: var(--amber-600);
+  --text-on-accent: var(--neutral-0);
+
+  --border-subtle: rgb(var(--ink-rgb) / 0.1);
+  --border-strong: rgb(var(--ink-rgb) / 0.18);
+  --border-glass: rgb(var(--light-rgb) / 0.78);
+  --border-focus: var(--blue-500);
+
+  --action-primary: var(--blue-500);
+  --action-primary-deep: var(--blue-700);
+  --action-neutral: var(--navy-800);
+  --action-warm: var(--amber-400);
+  --action-live: var(--green-400);
+
+  --elevation-flat: 0 4px 14px rgb(var(--ink-rgb) / 0.035);
+  --elevation-raised: 0 10px 34px rgb(var(--ink-rgb) / 0.07);
+  --elevation-floating: 0 18px 48px rgb(var(--ink-rgb) / 0.1);
+  --elevation-overlay: 0 28px 80px rgb(var(--ink-rgb) / 0.12);
+  --elevation-accent: 0 12px 28px rgb(11 132 198 / 0.24);
+
+  --rim-light: inset 0 1px 0 rgb(var(--light-rgb) / 0.7);
+
+  --motion-hover: var(--dur-base) var(--ease-out);
+  --motion-reveal: var(--dur-slow) var(--ease-entrance);
+}

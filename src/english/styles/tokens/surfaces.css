@@ -1,0 +1,39 @@
+.ti-surface--inverse {
+  --surface-canvas: var(--navy-800);
+  --surface-raised: rgb(var(--light-rgb) / 0.045);
+  --surface-sunken: var(--navy-900);
+  --surface-glass: rgb(var(--light-rgb) / 0.07);
+  --surface-glass-strong: rgb(var(--light-rgb) / 0.12);
+  --surface-accent-soft: rgb(var(--sky-rgb) / 0.14);
+  --surface-warm-soft: rgb(var(--warm-rgb) / 0.16);
+
+  --text-primary: var(--neutral-0);
+  --text-secondary: rgb(var(--light-rgb) / 0.82);
+  --text-muted: rgb(var(--light-rgb) / 0.66);
+  --text-accent: var(--blue-300);
+  --text-warm: var(--amber-300);
+  --text-on-accent: var(--navy-900);
+
+  --border-subtle: rgb(var(--light-rgb) / 0.16);
+  --border-strong: rgb(var(--light-rgb) / 0.3);
+  --border-glass: rgb(var(--light-rgb) / 0.2);
+  --border-focus: var(--blue-300);
+
+  --action-primary: var(--blue-400);
+  --action-primary-deep: var(--blue-500);
+  --action-neutral: var(--neutral-0);
+
+  --elevation-flat: 0 4px 14px rgb(var(--shade-rgb) / 0.18);
+  --elevation-raised: 0 12px 34px rgb(var(--shade-rgb) / 0.28);
+  --elevation-floating: 0 20px 48px rgb(var(--shade-rgb) / 0.36);
+  --elevation-overlay: 0 30px 80px rgb(var(--shade-rgb) / 0.44);
+  --elevation-accent: 0 14px 30px rgb(var(--shade-rgb) / 0.4);
+
+  --rim-light: inset 0 1px 0 rgb(var(--light-rgb) / 0.1);
+
+  color: var(--text-primary);
+}
+
+.ti-surface--inverse a {
+  color: inherit;
+}

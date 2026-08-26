@@ -1,0 +1,40 @@
+.ti-ticker {
+  overflow: hidden;
+  width: min(calc(100% - var(--shell-gutter) * 2), var(--shell-wide));
+  margin: clamp(1.5rem, 3vw, 2.5rem) auto 0;
+  padding: 0.7rem 0;
+  border-block: 1px solid var(--border-subtle);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.ti-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ti-marquee 34s linear infinite;
+}
+
+.ti-ticker__group {
+  display: flex;
+  align-items: center;
+}
+
+.ti-ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding-right: 1.4rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--size-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ti-ticker__item i {
+  display: block;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: var(--action-warm);
+}

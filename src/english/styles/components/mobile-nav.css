@@ -1,0 +1,82 @@
+.ti-mobile-nav {
+  display: none;
+  position: relative;
+}
+
+.ti-mobile-nav summary {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  list-style: none;
+  color: var(--text-secondary);
+}
+
+.ti-mobile-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+.ti-mobile-nav nav {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  display: grid;
+  width: min(17rem, calc(100vw - 2.4rem));
+  gap: 0.15rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  background: var(--surface-glass-strong);
+  box-shadow: var(--elevation-overlay);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  animation: ti-rise 220ms var(--ease-out) both;
+}
+
+.ti-mobile-nav nav a {
+  padding: 0.8rem 0.9rem;
+  border-radius: var(--radius-xs);
+  font-size: var(--size-sm);
+  font-weight: 600;
+  transition: background var(--motion-hover);
+}
+
+.ti-mobile-nav nav a:hover {
+  background: var(--surface-accent-soft);
+}
+
+.ti-mobile-nav__persian {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0 0 var(--radius-xs) var(--radius-xs);
+}
+
+.ti-mobile-nav__persian span {
+  font-family: "Vazirmatn", var(--font-sans);
+}
+
+.ti-mobile-nav__persian small {
+  color: var(--text-muted);
+  font-size: var(--size-2xs);
+}
+
+@media (max-width: 1040px) {
+  .ti-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .ti-nav {
+    display: none;
+  }
+
+  .ti-mobile-nav {
+    display: block;
+  }
+}

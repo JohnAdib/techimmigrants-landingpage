@@ -1,0 +1,79 @@
+.ti-hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.42rem 0.9rem 0.42rem 0.72rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: var(--surface-glass-strong);
+  box-shadow: var(--elevation-flat);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--size-2xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ti-hero h1 em {
+  position: relative;
+  font-family: var(--font-serif);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.ti-hero h1 em::after {
+  position: absolute;
+  z-index: -1;
+  inset: auto 0 0.1em;
+  height: 0.32em;
+  content: "";
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, rgb(var(--warm-rgb) / 0.6), rgb(var(--warm-rgb) / 0.2));
+  transform-origin: left;
+  animation: ti-marker 1100ms 460ms var(--ease-entrance) both;
+}
+
+.ti-hero__lead {
+  max-width: 35rem;
+  color: var(--text-secondary);
+  font-size: var(--size-md);
+  line-height: 1.72;
+}
+
+.ti-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.ti-hero__aside {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.6rem;
+}
+
+.ti-hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  margin: 0;
+  padding: 0;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--size-2xs);
+  letter-spacing: 0.05em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.ti-hero__trust li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.ti-hero__trust li + li::before {
+  content: "·";
+  opacity: 0.6;
+}

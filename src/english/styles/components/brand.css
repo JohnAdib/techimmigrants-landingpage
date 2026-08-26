@@ -1,0 +1,59 @@
+.ti-brand {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.ti-brand__mark {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex: none;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  box-shadow:
+    0 6px 16px rgb(var(--ink-rgb) / 0.18),
+    inset 0 0 0 1px rgb(var(--ink-rgb) / 0.06);
+}
+
+.ti-brand__copy {
+  display: grid;
+  gap: 0.08rem;
+  line-height: 1.25;
+}
+
+.ti-brand__copy strong {
+  font-size: var(--size-sm);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.ti-brand__copy small {
+  color: var(--text-muted);
+  font-size: var(--size-2xs);
+}
+
+.ti-live-dot {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: none;
+  border-radius: 50%;
+  --pulse-rgb: var(--live-rgb);
+
+  background: var(--action-live);
+  animation: ti-pulse-ring 2.6s ease-out infinite;
+}
+
+.ti-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.62rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-accent-soft);
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-size: var(--size-2xs);
+  letter-spacing: 0.04em;
+}
