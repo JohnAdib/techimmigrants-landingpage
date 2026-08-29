@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Tech Immigrants">
+  <rect width="512" height="512" rx="112" fill="#fff" />
+  <rect
+    x="72"
+    y="72"
+    width="368"
+    height="368"
+    rx="88"
+    fill="#fff"
+    stroke="#0b84c6"
+    stroke-width="42"
+  />
+  <path
+    d="M156 72h194c49.7 0 90 40.3 90 90v80"
+    fill="none"
+    stroke="#111827"
+    stroke-linecap="round"
+    stroke-width="42"
+  />
+  <path
+    d="M356 440H162c-49.7 0-90-40.3-90-90v-80"
+    fill="none"
+    stroke="#111827"
+    stroke-linecap="round"
+    stroke-width="42"
+  />
+  <path fill="#111827" d="M151 176h171v57h-56v143h-59V233h-56zM348 176h59v200h-59z" />
+</svg>
