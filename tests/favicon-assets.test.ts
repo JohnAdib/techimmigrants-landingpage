@@ -1,30 +1,29 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 const projectFile = (path: string) => new URL(`../${path}`, import.meta.url);
 
-const faviconLinks = [
-  '<link rel="icon" href="/favicon.ico" sizes="any" />',
-  '<link rel="icon" href="/favicon.svg" type="image/svg+xml" />',
-  '<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />',
-  '<link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />',
-  '<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />',
-  '<link rel="manifest" href="/site.webmanifest" />',
+const originalAssetHashes = {
+  "public/favicon.png": "2826bd8517c4b60f6385b8d2d1cffb6cbcc979631f403c8447e33a8110aa5427",
+  "public/apple-touch-icon.png": "97f502ce84ce6dbc93e28d28395515e12668452975ab359e6f3947053cfe3304",
+} as const;
+
+const removedAssets = [
+  "public/android-chrome-192x192.png",
+  "public/android-chrome-512x512.png",
+  "public/favicon-16x16.png",
+  "public/favicon-32x32.png",
+  "public/favicon.svg",
+  "public/site.webmanifest",
 ] as const;
 
-function pngDimensions(path: string) {
-  const image = readFileSync(projectFile(path));
-  const pngSignature = "89504e470d0a1a0a";
-
-  assert.equal(image.subarray(0, 8).toString("hex"), pngSignature, `${path} should be a PNG`);
-  return {
-    width: image.readUInt32BE(16),
-    height: image.readUInt32BE(20),
-  };
+function sha256(contents: Buffer) {
+  return createHash("sha256").update(contents).digest("hex");
 }
 
-function icoSizes(path: string) {
+function icoEntries(path: string) {
   const icon = readFileSync(projectFile(path));
   assert.equal(icon.readUInt16LE(0), 0, "ICO reserved field should be zero");
   assert.equal(icon.readUInt16LE(2), 1, "ICO type should be icon");
@@ -34,54 +33,57 @@ function icoSizes(path: string) {
     const offset = 6 + (index * 16);
     const width = icon[offset] || 256;
     const height = icon[offset + 1] || 256;
-    return `${width}x${height}`;
+    const byteLength = icon.readUInt32LE(offset + 8);
+    const imageOffset = icon.readUInt32LE(offset + 12);
+
+    return {
+      width,
+      height,
+      contents: icon.subarray(imageOffset, imageOffset + byteLength),
+    };
   });
 }
 
-test("English and Persian entries declare the complete shared favicon set", () => {
+test("every HTML entry declares the shared favicon.ico", () => {
   for (const entry of ["index.html", "fa/index.html"]) {
     const html = readFileSync(projectFile(entry), "utf8");
 
-    for (const link of faviconLinks) {
-      assert.ok(html.includes(link), `${entry} should include ${link}`);
-    }
+    assert.ok(
+      html.includes('<link rel="icon" href="/favicon.ico" sizes="any" />'),
+      `${entry} should declare /favicon.ico`,
+    );
+    assert.doesNotMatch(html, /favicon\.svg|favicon-(?:16x16|32x32)|site\.webmanifest/);
   }
 });
 
-test("favicon PNG assets have their declared dimensions", () => {
-  const expectedSizes = {
-    "public/favicon-16x16.png": 16,
-    "public/favicon-32x32.png": 32,
-    "public/favicon.png": 64,
-    "public/apple-touch-icon.png": 180,
-    "public/android-chrome-192x192.png": 192,
-    "public/android-chrome-512x512.png": 512,
-  } as const;
-
-  for (const [path, size] of Object.entries(expectedSizes)) {
-    assert.equal(existsSync(projectFile(path)), true, `${path} should exist`);
-    assert.deepEqual(pngDimensions(path), { width: size, height: size });
+test("the existing favicon PNG and Apple icon remain unchanged", () => {
+  for (const [path, expectedHash] of Object.entries(originalAssetHashes)) {
+    assert.equal(sha256(readFileSync(projectFile(path))), expectedHash, `${path} artwork should not change`);
   }
 });
 
-test("favicon.ico contains common browser sizes", () => {
-  const sizes = icoSizes("public/favicon.ico");
-
-  for (const expected of ["16x16", "32x32", "48x48", "64x64", "256x256"]) {
-    assert.ok(sizes.includes(expected), `favicon.ico should include ${expected}`);
+test("no extra favicon artwork or manifest is added", () => {
+  for (const path of removedAssets) {
+    assert.equal(existsSync(projectFile(path)), false, `${path} should not exist`);
   }
 });
 
-test("the web app manifest uses the shared install icons", () => {
-  const manifest = JSON.parse(readFileSync(projectFile("public/site.webmanifest"), "utf8"));
+test("favicon.ico packages the existing artwork at common browser sizes", () => {
+  const entries = icoEntries("public/favicon.ico");
+  const sizes = entries.map(({ width, height }) => `${width}x${height}`);
 
-  assert.equal(manifest.name, "Tech Immigrants");
-  assert.equal(manifest.short_name, "Tech Immigrants");
-  assert.deepEqual(
-    manifest.icons.map((icon: { src: string; sizes: string; type: string }) => icon),
-    [
-      { src: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { src: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
-    ],
-  );
+  assert.deepEqual(sizes, [
+    "16x16",
+    "24x24",
+    "32x32",
+    "48x48",
+    "64x64",
+    "128x128",
+    "256x256",
+  ]);
+
+  const original64 = readFileSync(projectFile("public/favicon.png"));
+  const embedded64 = entries.find(({ width }) => width === 64);
+  assert.ok(embedded64, "favicon.ico should contain a 64x64 entry");
+  assert.equal(sha256(embedded64.contents), sha256(original64));
 });
