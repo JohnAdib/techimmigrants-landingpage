@@ -12,6 +12,11 @@ export const socialProfiles = {
   github: { url: "https://github.com/TechImmigrants", handle: "TechImmigrants" },
 } as const;
 
+export const telegramChannelProfile = {
+  url: "https://t.me/Tech_Immigrants",
+  handle: "@Tech_Immigrants",
+} as const;
+
 export const communityStats = {
   crossPlatformReach: "54K+",
   telegramMembers: "25K+",

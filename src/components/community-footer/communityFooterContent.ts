@@ -1,4 +1,7 @@
-import { socialProfiles } from "../../content/communityData.ts";
+import {
+  socialProfiles,
+  telegramChannelProfile,
+} from "../../content/communityData.ts";
 
 export type FooterLocale = "en" | "fa";
 export type FooterDirection = "ltr" | "rtl";
@@ -10,7 +13,8 @@ export interface FooterLink {
 }
 
 export interface FooterChannel extends FooterLink {
-  id: FooterPlatformId;
+  id: string;
+  platform: FooterPlatformId;
   handle: string;
 }
 
@@ -19,12 +23,13 @@ export interface CommunityFooterContent {
   direction: FooterDirection;
   brandName: string;
   description: string;
+  footerNote: string;
   promise: string;
   liveLabel: string;
   reportingMonth: string;
   channelsLabel: string;
-  pageLinksLabel: string;
   backToTopLabel: string;
+  copyDescriptionLabel: string;
   homeHref: string;
   language: FooterLink & {
     hint: string;
@@ -32,38 +37,74 @@ export interface CommunityFooterContent {
     direction: FooterDirection;
   };
   channels: FooterChannel[];
-  pageLinks: FooterLink[];
 }
 
-const channelNames: Record<FooterPlatformId, string> = {
-  telegram: "Telegram",
-  youtube: "YouTube",
-  x: "X",
-  linkedin: "LinkedIn",
-  instagram: "Instagram",
-  github: "GitHub",
-};
+interface FooterChannelDefinition {
+  id: string;
+  platform: FooterPlatformId;
+  labels: Record<FooterLocale, string>;
+  href: string;
+  handle: string;
+}
 
-const channels: FooterChannel[] = Object.entries(socialProfiles).map(([id, profile]) => ({
-  id: id as FooterPlatformId,
-  label: channelNames[id as FooterPlatformId],
-  href: profile.url,
-  handle: profile.handle,
-}));
-
-const englishPageLinks: FooterLink[] = [
-  { label: "How it works", href: "#how-it-works" },
-  { label: "The path", href: "#journey" },
-  { label: "Community reach", href: "#reach" },
-  { label: "Join", href: "#community" },
+const channelDefinitions: FooterChannelDefinition[] = [
+  {
+    id: "telegram-group",
+    platform: "telegram",
+    labels: { en: "Telegram group", fa: "گروه تلگرام" },
+    href: socialProfiles.telegram.url,
+    handle: socialProfiles.telegram.handle,
+  },
+  {
+    id: "telegram-channel",
+    platform: "telegram",
+    labels: { en: "Telegram channel", fa: "کانال تلگرام" },
+    href: telegramChannelProfile.url,
+    handle: telegramChannelProfile.handle,
+  },
+  {
+    id: "youtube",
+    platform: "youtube",
+    labels: { en: "YouTube", fa: "یوتیوب" },
+    ...socialProfiles.youtube,
+    href: socialProfiles.youtube.url,
+  },
+  {
+    id: "x",
+    platform: "x",
+    labels: { en: "X", fa: "X" },
+    ...socialProfiles.x,
+    href: socialProfiles.x.url,
+  },
+  {
+    id: "linkedin",
+    platform: "linkedin",
+    labels: { en: "LinkedIn", fa: "لینکدین" },
+    ...socialProfiles.linkedin,
+    href: socialProfiles.linkedin.url,
+  },
+  {
+    id: "instagram",
+    platform: "instagram",
+    labels: { en: "Instagram", fa: "اینستاگرام" },
+    ...socialProfiles.instagram,
+    href: socialProfiles.instagram.url,
+  },
+  {
+    id: "github",
+    platform: "github",
+    labels: { en: "GitHub", fa: "گیت‌هاب" },
+    ...socialProfiles.github,
+    href: socialProfiles.github.url,
+  },
 ];
 
-const persianPageLinks: FooterLink[] = [
-  { label: "مصاحبه‌ها", href: "/fa/#interviews" },
-  { label: "منتورها", href: "/fa/#mentors" },
-  { label: "منابع", href: "/fa/#resources" },
-  { label: "جامعه", href: "/fa/#community" },
-];
+function footerChannels(locale: FooterLocale): FooterChannel[] {
+  return channelDefinitions.map(({ labels, ...channel }) => ({
+    ...channel,
+    label: labels[locale],
+  }));
+}
 
 function formatReportingMonth(locale: FooterLocale) {
   const intlLocale = locale === "fa" ? "fa-IR-u-ca-gregory" : "en";
@@ -82,12 +123,13 @@ export const communityFooterContent: Record<FooterLocale, CommunityFooterContent
     brandName: "Tech Immigrants",
     description:
       "A volunteer-run community of 54K+ Persian speakers in tech. Real experience on CVs, interviews, visas, relocation, and life after the move.",
+    footerNote: "Powered by community.",
     promise: "Powered by community.",
     liveLabel: "Live",
     reportingMonth: formatReportingMonth("en"),
     channelsLabel: "Community",
-    pageLinksLabel: "This page",
     backToTopLabel: "Tech Immigrants, back to the top",
+    copyDescriptionLabel: "Copy the community description",
     homeHref: "#top",
     language: {
       label: "فارسی",
@@ -96,21 +138,21 @@ export const communityFooterContent: Record<FooterLocale, CommunityFooterContent
       locale: "fa",
       direction: "rtl",
     },
-    channels,
-    pageLinks: englishPageLinks,
+    channels: footerChannels("en"),
   },
   fa: {
     locale: "fa",
     direction: "rtl",
     brandName: "تک ایمیگرنتس",
     description:
-      "جامعه‌ای داوطلب‌محور با بیش از ۵۴ هزار فارسی‌زبان فعال در فناوری؛ برای به‌اشتراک‌گذاشتن تجربه‌های واقعی رزومه، مصاحبه، ویزا، جابه‌جایی و زندگی پس از مهاجرت.",
+      "تک ایمیگرنتس یک جامعه داوطلبانه است که با مصاحبه از ایرانیان شاغل در صنعت تکنولوژی در کشورهای مختلف، تجربیات واقعی مهاجرت و کار رو با شما به اشتراک می‌ذاره.",
+    footerNote: "جامعه ایرانیان شاغل در صنعت تکنولوژی",
     promise: "با قدرت جامعه.",
     liveLabel: "فعال",
     reportingMonth: formatReportingMonth("fa"),
     channelsLabel: "جامعه",
-    pageLinksLabel: "در سایت",
     backToTopLabel: "تک ایمیگرنتس، بازگشت به بالای صفحه",
+    copyDescriptionLabel: "کپی توضیح جامعه",
     homeHref: "/fa/",
     language: {
       label: "English",
@@ -119,7 +161,6 @@ export const communityFooterContent: Record<FooterLocale, CommunityFooterContent
       locale: "en",
       direction: "ltr",
     },
-    channels,
-    pageLinks: persianPageLinks,
+    channels: footerChannels("fa"),
   },
 };

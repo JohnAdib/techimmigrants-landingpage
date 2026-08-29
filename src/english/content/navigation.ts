@@ -1,8 +1,11 @@
-import {
-  communityFooterContent,
-  type FooterLink,
-} from "@/components/community-footer/communityFooterContent";
+export interface NavItem {
+  label: string;
+  href: string;
+}
 
-export type NavItem = FooterLink;
-
-export const pageNavigation: NavItem[] = communityFooterContent.en.pageLinks;
+export const pageNavigation: NavItem[] = [
+  { label: "How it works", href: "#how-it-works" },
+  { label: "The path", href: "#journey" },
+  { label: "Community reach", href: "#reach" },
+  { label: "Join", href: "#community" },
+];

@@ -10,6 +10,7 @@
 @import "./base/motion.css";
 @import "./base/grain.css";
 
+@import "./components/liquid-glass.css";
 @import "./components/brand.css";
 @import "./components/button.css";
 @import "./components/button-variants.css";
