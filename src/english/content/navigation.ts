@@ -1,21 +1,8 @@
-export interface NavItem {
-  label: string;
-  href: string;
-}
+import {
+  communityFooterContent,
+  type FooterLink,
+} from "@/components/community-footer/communityFooterContent";
 
-export interface FooterColumnContent {
-  title: string;
-  items: NavItem[];
-}
+export type NavItem = FooterLink;
 
-export const pageNavigation: NavItem[] = [
-  { label: "How it works", href: "#how-it-works" },
-  { label: "The path", href: "#journey" },
-  { label: "Community reach", href: "#reach" },
-  { label: "Join", href: "#community" },
-];
-
-export const footerPage: FooterColumnContent = {
-  title: "This page",
-  items: pageNavigation,
-};
+export const pageNavigation: NavItem[] = communityFooterContent.en.pageLinks;
