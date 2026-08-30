@@ -1,4 +1,5 @@
 import {
+  persianCommunityTagline,
   socialProfiles,
   telegramChannelProfile,
 } from "../../content/communityData.ts";
@@ -147,7 +148,7 @@ export const communityFooterContent: Record<FooterLocale, CommunityFooterContent
     description:
       "تک ایمیگرنتس یک جامعه داوطلبانه است که با مصاحبه از ایرانیان شاغل در صنعت تکنولوژی در کشورهای مختلف، تجربیات واقعی مهاجرت و کار رو با شما به اشتراک می‌ذاره.",
     footerNote: "جامعه ایرانیان شاغل در صنعت تکنولوژی",
-    promise: "با قدرت جامعه.",
+    promise: persianCommunityTagline,
     liveLabel: "فعال",
     reportingMonth: formatReportingMonth("fa"),
     channelsLabel: "جامعه",

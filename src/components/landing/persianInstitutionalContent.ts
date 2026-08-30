@@ -1,5 +1,6 @@
 import {
   communityStats,
+  persianCommunityTagline,
   socialProfiles,
 } from "@/content/communityData";
 import type { HeroContent } from "@/english/content/hero";
@@ -8,7 +9,7 @@ import type { Platform } from "@/english/content/platforms";
 
 export const persianInstitutionalBrand = {
   href: "/fa/",
-  hint: "جامعه‌ای فراتر از مرزها",
+  hint: persianCommunityTagline,
   label: "تک ایمیگرنتس، بازگشت به صفحه اصلی",
   name: "تک ایمیگرنتس",
 } as const;

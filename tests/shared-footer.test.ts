@@ -148,6 +148,25 @@ test("the Persian footer uses Persian typography and keeps handles near their la
   assert.match(component, /content\.footerNote/);
 });
 
+test("the Persian header and footer share one community tagline source", () => {
+  const communityData = readFileSync(
+    projectFile("src/content/communityData.ts"),
+    "utf8",
+  );
+  const headerContent = readFileSync(
+    projectFile("src/components/landing/persianInstitutionalContent.ts"),
+    "utf8",
+  );
+  const footerContent = readFileSync(
+    projectFile("src/components/community-footer/communityFooterContent.ts"),
+    "utf8",
+  );
+
+  assert.match(communityData, /export const persianCommunityTagline/);
+  assert.match(headerContent, /hint:\s*persianCommunityTagline/);
+  assert.match(footerContent, /promise:\s*persianCommunityTagline/);
+});
+
 test("the mobile menu has breathing room and does not duplicate the language switch", () => {
   const component = readFileSync(
     projectFile("src/english/components/MobileNav.tsx"),

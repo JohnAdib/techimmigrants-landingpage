@@ -1,5 +1,7 @@
 export const COMMUNITY_FOUNDED_YEAR = 2020;
 
+export const persianCommunityTagline = "جامعه‌ای فراتر از مرزها";
+
 export const socialProfiles = {
   telegram: { url: "https://t.me/techimmigrants", handle: "@techimmigrants" },
   youtube: { url: "https://youtube.com/@techimmigrants", handle: "@techimmigrants" },
