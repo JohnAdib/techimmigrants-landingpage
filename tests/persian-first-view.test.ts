@@ -39,8 +39,9 @@ test("the Persian first view uses the supplied community copy and localized chan
 
   assert.match(
     content,
-    /تجربه‌های مهاجرت در دنیای تکنولوژی،.*از زبان.*ایرانی‌های مهاجر/s,
+    /تجربه‌های مهاجرت در دنیای تکنولوژی،.*از زبان.*ایرانیان مهاجر/s,
   );
+  assert.doesNotMatch(content, /headingEmphasis: "ایرانی‌های مهاجر"/);
   assert.match(
     content,
     /تک ایمیگرنتس یک جامعه داوطلبانه است که با مصاحبه از ایرانیان شاغل در صنعت تکنولوژی در کشورهای مختلف، تجربیات واقعی مهاجرت و کار رو با شما به اشتراک می‌ذاره\./,
